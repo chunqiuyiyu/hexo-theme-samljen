@@ -60,36 +60,11 @@ a {
   margin-bottom: 1.5rem;
 }
 
-link-a() {
-  a {
-    position: relative;
-    transition: all .3s ease-out;
-    
-    &::after {
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      z-index: -1;
-      width: 0;
-      height: 3px;
-      background-color: #f77;
-      content: "";
-      transition: all .3s ease-in-out;
-    }
-    
-    &:hover::after {
-      width: 100%;
-    }
-  }
-}
-
 .item {
   padding: 1.5rem;
   width: 50%;
   position: relative;
   border-bottom: .1rem solid #f77;
-  
-  link-a()
 }
 
 @import "_partial/home";

@@ -24,13 +24,12 @@
 <% if (!is_home()) { %>
 <div class="holder">&nbsp;</div>
 <div class="info">
-  <a class="site-title" href=<%- url_for('/') %>><%= config.title %>
-      <% if (config.subtitle) { %>
+  <a class="site-title" href=<%- url_for('/') %>><%= config.title %></a>
+  <% if (config.subtitle) { %>
   <div class="subtitle">
     <%= config.subtitle %>
   </div>
   <% } %>
-  </a>
 </div>
 <% } %>
 

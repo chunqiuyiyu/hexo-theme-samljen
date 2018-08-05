@@ -235,7 +235,8 @@ window.onload = function() {
     // Go top
     function top(el) {
         var d = document,
-            top = el.scrollTop,
+            // Fix bug in iPad/iPhone 
+            top = el.scrollTop || document.body.scrollTop,
             step = Math.floor(top / 10);
 
         if (!top) return;
