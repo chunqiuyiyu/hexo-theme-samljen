@@ -1,0 +1,31 @@
+<% if (theme.search) { %>
+  <div class="search-mask">
+    <div class="search-dialog">
+        <div class="search-title">
+          <%= __('Search') %>
+          <div class="close">×</div>
+        </div>
+        <input type="text" autocomplete="off"
+               name="search" placeholder="Search for Posts" id="local-search-input">
+        <span class="down">↓</span>
+        <hr />
+        <div id="local-search-result">
+          <ul class="archive">
+          <%
+            let list = _.cloneDeep(site.posts);
+            list = list.sort('date', -1);
+          %>
+          <% list.map(function (item) { %>
+              <li>
+                <a class="archive-title" href="<%- url_for(item.path) %>"><%= item.title %></a>
+                <time class="archive-date"><%= date(item.date, "YYYY-MM-DD") %></time>
+              </li>
+          <% }) %>
+          </ul>
+          <% if (list.length > 10) { %>
+            <div class="top">↑</div>
+          <% } %>
+        </div>
+    </div>
+  </div>
+<% } %>

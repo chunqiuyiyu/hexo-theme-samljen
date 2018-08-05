@@ -1,0 +1,135 @@
+.search-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  background: rgba(0,0,0,.6);
+  
+  .search-dialog {
+    position: fixed;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    padding: 1.5rem;
+    background: #fff;
+    height: 80vh;
+    overflow-y: scroll;
+    width: 40rem;
+    
+    .search-title {
+      padding: 0 0 .7rem;
+      color: #f77;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      
+      .close {
+        color: #111;
+        cursor: pointer;
+        
+        &:hover {
+          color: #f77;
+          font-weight: 700;
+        }
+      }
+    }
+    
+    input {
+      padding: 0.25rem 0.75rem;
+      outline: 0;
+      border: 2px solid #f77;
+      border-radius: 2rem;
+      font-size: 1.2rem;
+      max-width: 90%;
+    }
+    
+    .down {
+      font-size: 1.5rem;
+      margin-left: .5rem;
+      position: absolute;
+      color: #f77;
+      cursor: pointer;
+      
+      &:hover {
+        color: #111;
+      }
+    }
+    
+    hr {
+      position: relative;
+      margin: 1.5rem auto;
+      width: calc(100% - 4px);
+      border: 2px dashed #f77;
+      background: #fff;
+    }
+    
+    .archive {
+      li {
+        list-style: none;
+        margin: .5rem 0;
+      }
+      
+      padding: .5rem 0;
+      
+      link-a()
+      
+      .archive-title {
+        font-size: 1.5rem;
+        color: #f77;
+        margin: 0;
+      }
+      
+      time {
+        margin-left: .5rem;
+      }
+      
+      .search-result {
+        padding: 1rem;
+        word-break: break-all;
+        
+        .search-keyword {
+          color: #f77;
+          font-style: initial;
+          font-weight: 700;
+          margin: 0 .2rem;
+        }
+      }
+    }
+    
+    .local-search-empty {
+      font-size: 1.5rem;
+      color: #f77;
+    }
+    
+    #local-search-close {
+      margin: .5rem 0;
+      cursor: pointer;
+      display: inline-block;
+      
+      &:hover {
+        color: #f77;
+      }
+    }
+    
+    #local-search-result {
+      .top {
+        font-size: 1.5rem;
+        color: #f77;
+        display: inline-block;
+        float: right;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+        cursor: pointer;
+        
+        &:hover {
+          color: #111;
+        }
+      }
+    }
+  }
+}

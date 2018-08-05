@@ -1,0 +1,111 @@
+<%- partial('_partial/header') %>
+<%
+  let tags = [];
+  site.tags.forEach(tag => {
+    tags.push({
+      name: tag.name,
+      path: url_for(tag.path)
+    })
+  });
+
+  function createCard (card, i) {
+    var s = Math.random()
+    var scale = ((s*s*s) * 7) + 1
+    var index = 10 - Math.floor(scale)
+
+    return {
+      id: i,
+      scale: scale * 2,
+      invert: Math.random() >= 0.5,
+      index: index,
+      text: card.name,
+      path: card.path,
+      position: {
+        x: Math.random() * 100,
+        y: Math.random() * 100
+      },
+      rotate: Math.random() * 360,
+    }
+  }
+
+  function renderCard (props) {
+    var style = {
+      padding: `${0.25 * props.scale}rem ${0.5 * props.scale}rem`,
+      fontSize: props.scale + 'rem',
+      top: props.position.y + '%',
+      left: props.position.x + '%',
+      transform: `translate(-50%, -50%) rotate(${props.rotate}deg) `,
+      zIndex: props.index
+    }
+
+    var classList = props.invert
+      ? 'bgc-pink fc-pinker'
+      : 'bgc-pinker fc-pink'
+
+    const { padding, fontSize, top, left, transform, zIndex } = style;
+
+    var el = `
+      <div
+        class="${classList}"
+        style="padding:${padding};
+        font-size:${fontSize};top:${top};left:${left};transform:${transform};z-index:${zIndex}"
+      >
+        <a href="${props.path}">${props.text}</a>
+      </div>
+    `;
+
+    return el;
+  }
+
+  let props = tags.map(createCard);
+%>
+
+<div class="cards-container">
+  <div class="cards">
+  <%- 
+    props.map(renderCard).join('')
+  %>
+    <div class="site-title">
+      <a href="<%- url_for('/') %>">
+        <%=  config.title %>
+      </a>
+    </div>
+  </div>
+  <% if (config.subtitle) { %>
+  <div class="subtitle">
+    <%= config.subtitle %>
+  </div>
+  <% } %>
+</div>
+
+<% if (theme.home) { %>
+<main class="item-container">
+<% theme.home.map(function (item, i) { %>
+  <div class="item">
+    <% if (!(i % 2)) { %>
+    <div class="vert-line"></div>
+    <% } %>
+    <div><a class="title" href="<%- url_for(item.path) %>"><%= item.title %></a></div>
+    <div class="desc"><%= item.desc %></div>
+  </div>
+<% }) %>
+</main>
+<% } %>
+
+<div class="start-container">
+<% if (theme.email) { %>
+  <a href="mailto:<%=  theme.email %>" class="contact">
+    <%= __('Contact') %>
+  </a>
+<% } %>
+
+  <span class="start">
+    <a href="<%- url_for('/archives') %>">
+      <%= __('Tip') %>
+      <span class="arrow">→</span>
+    </a>
+  </span>
+</div>
+
+<%- partial('_partial/search') %>
+<%- partial('_partial/footer') %>

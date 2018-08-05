@@ -1,0 +1,19 @@
+<%- partial('_partial/header') %>
+
+<main class="item-container">
+<% page.posts.map(function (item, i) { %>
+  <div class="item">
+    <% if (!(i % 2)) { %>
+    <div class="vert-line"></div>
+    <% } %>
+    <div><a class="title" href="<%- url_for(item.path) %>"><%= item.title %></a></div>
+    <div class="desc"><%- strip_html(item.content.substring(0, 140)) + '...' %></div>
+    <time class="date"><%= date(item.date, "YYYY-MM-DD") %></time>
+  </div>
+<% }) %>
+</main>
+
+<%- partial('_partial/search') %>
+<%- partial('_partial/paginator') %>
+<%- partial('_partial/footer') %>
+

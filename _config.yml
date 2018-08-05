@@ -1,0 +1,50 @@
+# Favicon
+favicon: /favicon.ico
+
+# SEO
+keywords: 生活,博客,前端,游戏
+
+# Site title separator
+separator: '-'
+
+# RSS
+rss: /atom.xml
+
+# SNS config
+sns:
+  GitHub: //github.com/chunqiuyiyu
+  RSS: /atom.xml
+
+# Nav menu
+menu:
+  Home: /
+  Archives: /archives
+
+email: chunqiuyiyu@outlook.com
+search: true
+
+# Home config
+home:
+-
+  path: /tags/books
+  title: 书香乾坤赴
+  desc: 读经味如稻粱，读史味如肴馔，读诸子百家味如酰醢。
+-
+  path: /musics
+  title: 乐袅心弦枯
+  desc: 凡音之起，由人心生也。
+
+-
+  path: /tags/word
+  title: 语歧路
+  desc: 不如意事常八九，可与语人无二三。
+
+-
+  path: /tags/game
+  title: 逸无骨
+  desc: 有花堪折直须折，莫待无花空折枝。
+
+-
+  path: /project
+  title: 集腋春风渡
+  desc: 积跬步以至千里，积小流以成江海。

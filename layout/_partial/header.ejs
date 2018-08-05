@@ -1,0 +1,36 @@
+<header class="header">
+  <nav class="navbar">
+    <div class="menu">
+      <div class="menu-item">
+      <% for (name in theme.menu) { %>
+        <a href="<%- url_for(theme.menu[name]) %>" class="menu-item-link"><%- __(name) %></a>
+      <% } %>
+      </div>
+    </div>
+
+    <div class="menu">
+      <div class="menu-item">
+      <% for (name in theme.sns) { %>
+        <a href="<%- url_for(theme.sns[name]) %>" class="menu-item-link"><%- name %></a>
+      <% } %>
+      <% if (theme.search) { %>
+        <a href="javascript:void(0)" class="menu-item-link search"><%- __('Search') %></a>
+      <% } %>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<% if (!is_home()) { %>
+<div class="holder">&nbsp;</div>
+<div class="info">
+  <a class="site-title" href=<%- url_for('/') %>><%= config.title %>
+      <% if (config.subtitle) { %>
+  <div class="subtitle">
+    <%= config.subtitle %>
+  </div>
+  <% } %>
+  </a>
+</div>
+<% } %>
+
