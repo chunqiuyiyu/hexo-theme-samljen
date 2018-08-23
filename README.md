@@ -4,7 +4,7 @@ Another simple blog theme for Hexo, inspired by [Choo](https://choo.io/).
 
 ## Preview
 
-[Demo](https://www.chunqiuyiyu.com/)
+![Samljen](./Samljen.png)
 
 ## Installation
 
