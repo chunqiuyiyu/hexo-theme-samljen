@@ -51,6 +51,15 @@ search:
   format: html
 ```
 
+New search page: `hexo new page search`
+```markdown
+---
+title: Search
+type: search
+---
+
+```
+
 ## Browser support
 
 | IE | Edge | Firefox | Chrome | Safari | iOS Safari |
