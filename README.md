@@ -51,7 +51,7 @@ search:
   format: html
 ```
 
-New search page: `hexo new page search`
+New search page: `hexo new page search`.
 ```markdown
 ---
 title: Search
